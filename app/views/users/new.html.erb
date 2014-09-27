@@ -1,0 +1,14 @@
+<h1>Welcome to the SR Portal</h1>
+<h2>Please complete the registration form if you are a new faculty or student</h2>
+
+<%= form_for @users do |f| %>
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+	<%= f.submit "create" %>
+<% end %>
+
+
+
+
+
+

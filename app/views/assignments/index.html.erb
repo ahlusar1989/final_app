@@ -1,0 +1,19 @@
+<h1>Your Assignments by Course Name</h1>
+
+ <%= link_to 'Create New assignment', new_course_assignment_path %>
+ <%= link_to 'All Upcoming Assignments', course_assignments_path %>
+
+<table>
+  <tr>
+    <th>Assignment</th>
+  </tr>
+
+    <tr>
+      <td><%= @course.name %></td>
+      <%= course.assignments.each do |assignment| %>
+
+        <%= assignment.assignment_type %>
+      <% end %>
+      <table>
+    
+  </tr>

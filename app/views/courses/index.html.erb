@@ -1,0 +1,36 @@
+
+<h2>Welcome to the SR Courses Landing Page!</h2>
+
+
+<h1>Your Courses</h1>
+ 
+<table>
+  <tr>
+    <th>Course Name</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @courses.each do |course| %>
+    <tr>
+      <td><%= course.name %></td>
+         <td><%= link_to 'Show', course_path(course) %></td>
+         <td><%= link_to 'Delete a Course', course_path(course),
+                    method: :delete, data: {confirm: 'Are you sure?'} %> 
+                  </td>
+
+    </tr>
+  <% end %>
+</table>
+
+<h2>To Search for a Course Please enter the name of the course (example: Scripture)</h2>
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:name, "Search for:") %>
+  <%= text_field_tag(:name) %>
+  <%= submit_tag("Search") %>
+<% end %>
+ <td><%= link_to 'Create a New Course', new_course_path %></td>
+
+<td><%= link_to 'List All Assignments for Course', course_assignments_path %></td>
+
+

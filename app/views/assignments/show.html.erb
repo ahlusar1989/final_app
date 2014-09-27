@@ -1,0 +1,47 @@
+<p>
+  <strong>Title:</strong>
+  <%= @assignment.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @assignment.text %>
+</p>
+ 
+ 
+<h2>Comments</h2>
+<% @assignment.comments.each do |comment| %>
+  <p>
+    <strong>Question:</strong>
+    <%= comment.questions %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.comments %>
+  </p>
+<% end %>
+
+
+<h2>Add a comment:</h2>
+<%= form_for([@assignment, @assignment.comments.build]) do |f| %>
+  <p>
+    <%= f.label :comments %><br>
+    <%= f.text_field :comments %>
+  </p>
+  <p>
+    <%= f.label :questions %><br>
+    <%= f.text_area :questions %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'All Assignments', assignments_path %>
+
+
+
+
+
+

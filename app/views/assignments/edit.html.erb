@@ -1,0 +1,10 @@
+<a =% form_for @assignment %>
+
+	<%= f.label :assignment_type %>
+	<%= f.text_field :assignment_type %>
+	<%= f.label :date_assigned %>
+	<%= f.text_field :date_assigned %>
+	<%= f.label :due_date %>
+	<%= f.text_field :due_date  %>
+	<%= f.submit "Update Assignment" %>
+<% end %>
