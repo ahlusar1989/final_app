@@ -48,7 +48,7 @@ def show
 	@assignment= Assignment.find(params[:id])
   	@assignments = Assignment.all
   	@course = Course.find(params[:id])
-	end
+end
 
 
 def destroy
@@ -58,10 +58,10 @@ def destroy
 end
 
 
- def redirect
+def redirect
     @assignment= assignment.find_by_assignment(params[:assignment_type, :date_assigned, :due_date])
     redirect_to @assignment
-  end
+end
 # @assignment= Assignment.new(params[:assignment])
 
 # 		if @assignment.save
