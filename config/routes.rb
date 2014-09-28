@@ -6,13 +6,16 @@ root 'courses#index'
 
   devise_for :users
 
-
     resources :courses do
     resources :assignments
  
  end
 
     
+    resources :assignments do
+      resources :comments
+end
+
     # resources :assignments only: [:new, :create, :show, :destroy, :update]
     # resources :comments only: [:show, :new, :create]
   #     resources :comments, only: :create 

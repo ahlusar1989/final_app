@@ -1,26 +1,22 @@
 class CommentsController < ApplicationController
 
+http_basic_authenticate_with name: "dhh", password: "encrypted_password", only: :destroy 
 		
 def create
     @assignment = Assignment.find(params[:assignment_id])
     @comment = @assignment.comments.create(comment_params)
-    redirect_to assingment_path(@assignment)
-
-	if user_signed_in?
-	safe_comment = params.require(:user).permit(:post).merge(user_id: params[:user_id])
-	@comment = current_user.comments.create safe_comment
-	redirect_to @comment.assignment		
-	else
-	redirect_to new_user_session_path, alert: "Only logged in users can comment. Please ensure that you are a , before your next attempt"
-		end
-	end
+    redirect_to assignment_path(@assignment)
 end
 
+def destroy
+	@assignment = Assignment.find(params[:assignment_id])
+	@comment = @assignment.comments.find(params[:id])
+	comment.destroy
+	redirect_to assignment_path(@assignment)
+end
 
-
- 
   private
     def comment_params
-      params.require(:comment).permit(:commenter, :body)
+      params.require(:comment).permit(:questions, :comments)
     end
 end

@@ -1,5 +1,9 @@
 class AssignmentsController < ApplicationController
 
+
+http_basic_authenticate_with name: "dhh" , password: "encrypted_password", except: [:index, :show]
+
+
 def index
 	@assignments = Assignment.all 
 	@course = Assignment.new
