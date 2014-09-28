@@ -38,8 +38,13 @@ textarea {
 
 /*typography*/
 
+@import "fontawesome";
 
-
+@fontAwesomeEotPath: "/assets/fontawesome-webfont.eot";
+@fontAwesomeEotPath_iefix: "/assets/fontawesome-webfont.eot?#iefix";
+@fontAwesomeWoffPath: "/assets/fontawesome-webfont.woff";
+@fontAwesomeTtfPath: "/assets/fontawesome-webfont.ttf";
+@fontAwesomeSvgPath: "/assets/fontawesome-webfont.svg#fontawesomeregular";
 
 
 
