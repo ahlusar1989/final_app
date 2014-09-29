@@ -17,7 +17,7 @@ root 'courses#index'
 end
 
     # resources :assignments only: [:new, :create, :show, :destroy, :update]
-    # resources :comments only: [:show, :new, :create]
+    # resources :comments only: []
   #     resources :comments, only: :create 
    
 end

@@ -33,14 +33,12 @@ end
 
 
 def show
-		@course = Course.find params[:id]
-		@courses = Course.all
-		# @assignment= Assignment.find(params[:id])
-  #   @assignments = Assignment.all
-	end
+	@course = Course.find params[:id]
+	@courses = Course.all
+end
 
 def destroy
-  @course = Course.find(params[:id])
+  @course = Course.find(params[:course_id])
   @course.destroy
 
   redirect_to courses_path
