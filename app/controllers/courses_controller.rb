@@ -35,6 +35,7 @@ end
 def show
 	@course = Course.find params[:id]
 	@courses = Course.all
+  @assignment = Assignment.new
 end
 
 def destroy

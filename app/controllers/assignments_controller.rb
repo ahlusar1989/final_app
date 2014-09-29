@@ -16,16 +16,14 @@ def show
 end
 
 def new
-	@assignment = Assignment.new(assignment_params)
+	@assignment = Assignment.new
 end
 
 def create
-	@course = Course.find(params[:course_id])
-    @assignment = @course.assignments.create(assignment_params)
-
-
+  assignment_params = params.require(:assignment).permit(:due_date, :date_assigned, :assignment_type).merge(course_id: params[:course_id])
+  @assignment = Assignment.create(assignment_params)
 	@assignment.save
-  redirect_to @assignment
+  redirect_to courses_path
 end
 
 
@@ -34,7 +32,7 @@ def edit
 	end
 
 def update
-  @assignment = Assignment.find(params[:id])
+    @assignment = Assignment.find(params[:id])
  
   if @assignment.update(assignment_params)
     redirect_to @assignment
@@ -55,6 +53,7 @@ def redirect
     @assignment= assignment.find_by_assignment(params[:assignment_type, :date_assigned, :due_date])
     redirect_to @assignment
 end
+
 # @assignment= Assignment.new(params[:assignment])
 
 # 		if @assignment.save
@@ -62,6 +61,7 @@ end
 # 		else
 # 			render 'new' 
 # 	end
+
 private
 
  def assignment_params

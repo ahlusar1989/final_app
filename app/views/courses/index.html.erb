@@ -13,7 +13,7 @@
 
   <% @courses.each do |course| %>
     <tr>
-      <td><%= course.name %></td>
+      <td><%= link_to course.name, course %></td>
          <td><%= link_to 'All Courses', course_path(course) %></td>  
          <td><%= link_to 'Delete a Course', course_path(course),
                     method: :delete, data: {confirm: 'Are you sure?'} %> 

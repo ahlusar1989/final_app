@@ -4,6 +4,8 @@
     <th>A Listing of All Courses</th>
   </tr>
 
+<td><%= link_to 'Create New Assignment', new_assignment_path %></td>
+
   <% @courses.each do |course| %>
     <tr>
       <td><%= course.name %></td>
@@ -17,4 +19,38 @@
  <td><%= link_to 'Back to the Course Index', courses_path %></td>
 
 
+ 
+<%= form_for [@course, @assignment] do |f| %>
+  <% if @assignment.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+    <ul>
+    <% @assignment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :assignment_type %><br>
+    <%= f.text_field :assignment_type %>
+  </p>
+ 
+
+<p>
+    <%= f.label :date_assigned %><br>
+    <%= f.text_field :date_assigned %>
+</p>
+
+<p>
+    <%= f.label :due_date %><br>
+    <%= f.text_field :due_date %>
+</p>
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
  
