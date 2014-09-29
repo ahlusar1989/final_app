@@ -1,23 +1,23 @@
 class AssignmentsController < ApplicationController
 
 
-http_basic_authenticate_with name: "dhh" , password: "encrypted_password", except: [:index, :show]
-
-
+before_action :authenticate_user!, only: [:new, :edit, :destroy]
 def index
 	@assignments = Assignment.all 
 	@course = Assignment.new
 	@course = Assignment.all
 end
 
+def show
+  @comment = Comment.new(:assignment => @assignment)
+  @assignment= Assignment.find(params[:id])
+  @assignments = Assignment.all
+  @course = Course.find(params[:id])
+end
 
 def new
 	@assignment = Assignment.new(assignment_params)
 end
-
-# def edit
-#  		@assignment = Assignment.find(params[:id])
-# end
 
 def create
 	@course = Course.find(params[:course_id])
@@ -25,7 +25,7 @@ def create
 
 
 	@assignment.save
-  	redirect_to @assignment
+  redirect_to @assignment
 end
 
 
@@ -41,13 +41,6 @@ def update
   else
     render 'edit'
   end
-end
-
-def show
-	@comment = Comment.new(:assignment => @assignment)
-	@assignment= Assignment.find(params[:id])
-  	@assignments = Assignment.all
-  	@course = Course.find(params[:id])
 end
 
 

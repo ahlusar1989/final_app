@@ -13,7 +13,8 @@
   <% @courses.each do |course| %>
     <tr>
       <td><%= course.name %></td>
-         <td><%= link_to 'Show', course_path(course) %></td>
+         <td><%= link_to 'All Courses', course_path(course) %></td>
+         <td><%= link_to 'Create a New Course', new_course_path %></td>
          <td><%= link_to 'Delete a Course', course_path(course),
                     method: :delete, data: {confirm: 'Are you sure?'} %> 
                   </td>
@@ -29,7 +30,7 @@
   <%= text_field_tag(:name) %>
   <%= submit_tag("Search") %>
 <% end %>
- <td><%= link_to 'Create a New Course', new_course_path %></td>
+
 
 
 
