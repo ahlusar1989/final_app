@@ -1,7 +1,7 @@
 
 <table>
   <tr>
-    <th>A Listing of All Courses</th>
+    <th>A Listing of All of Your Assignments</th>
   </tr>
 
 
@@ -11,7 +11,7 @@
       
          <td> Assignment Type: <%= assignment.assignment_type %></td>
           <td>Due date: <%= assignment.due_date %></td>
-          <td> <%= link_to "show", course_assignment_path(@course, assignment)%> </td>
+          <td> <%= link_to "Assignment Comments", course_assignment_path(@course, assignment)%> </td>
     </tr>
   <% end %>
 </table>
