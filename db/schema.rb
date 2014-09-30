@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929224100) do
+ActiveRecord::Schema.define(version: 20140930004516) do
 
   create_table "assignments", force: true do |t|
     t.string   "date_assigned"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140929224100) do
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "assignment_id"
   end
 
   create_table "courses", force: true do |t|

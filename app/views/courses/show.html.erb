@@ -4,21 +4,22 @@
     <th>A Listing of All Courses</th>
   </tr>
 
-<td><%= link_to 'Create New Assignment', new_assignment_path %></td>
 
-  <% @courses.each do |course| %>
+  <% @course_assignments.each do |assignment| %>
+
     <tr>
-      <td><%= course.name %></td>
       
-         <td><%= link_to 'Edit a Course', edit_course_path(course) %></td>
+         <td> Assignment Type: <%= assignment.assignment_type %></td>
+          <td>Due date: <%= assignment.due_date %></td>
+          <td> <%= link_to "show", course_assignment_path(@course, assignment)%> </td>
     </tr>
   <% end %>
 </table>
 
 </table>
- <td><%= link_to 'Back to the Course Index', courses_path %></td>
 
 
+<h2>Please enter new assignments here</h2>
  
 <%= form_for [@course, @assignment] do |f| %>
   <% if @assignment.errors.any? %>

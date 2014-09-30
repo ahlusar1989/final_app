@@ -12,7 +12,8 @@ def show
   @comment = Comment.new(:assignment => @assignment)
   @assignment= Assignment.find(params[:id])
   @assignments = Assignment.all
-  @course = Course.find(params[:id])
+  @course = Course.find(params[:course_id])
+ 
 end
 
 def new
@@ -20,10 +21,11 @@ def new
 end
 
 def create
-  assignment_params = params.require(:assignment).permit(:due_date, :date_assigned, :assignment_type).merge(course_id: params[:course_id])
-  @assignment = Assignment.create(assignment_params)
+  assignments_params = params.require(:assignment).permit(:due_date, :date_assigned, :assignment_type).merge(course_id: params[:course_id])
+  @course = Course.find params[:course_id]
+  @assignment = Assignment.create(assignments_params)
 	@assignment.save
-  redirect_to courses_path
+  redirect_to @course
 end
 
 

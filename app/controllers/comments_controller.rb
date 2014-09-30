@@ -5,7 +5,8 @@ http_basic_authenticate_with name: "dhh", password: "encrypted_password", only: 
 def create
     @assignment = Assignment.find(params[:assignment_id])
     @comment = @assignment.comments.create(comment_params)
-    redirect_to assignment_path(@assignment)
+    @course = @assignment.course
+    redirect_to "/courses/#{@course.id}/assignments/#{@assignment.id}"
 end
 
 def destroy
