@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.5'
+gem 'rails', '6.0.3.5'
 #bootstrapp using sass
 gem 'bootstrap-sass', '2.0.0'
 # Use sqlite3 as the database for Active Record
@@ -30,7 +30,7 @@ gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'best_in_place'
+gem 'best_in_place', '>= 0.2.3'
 # Use unicorn as the app server
 # gem 'unicorn'
 
